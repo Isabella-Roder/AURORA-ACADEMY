@@ -1,5 +1,6 @@
 package com.auroraacademy.backend.controller;
 
+
 import java.util.List;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -47,6 +48,11 @@ public class UsuarioController {
     @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id) {
         usuarioService.deletar(id);
+    }
+
+    @PostMapping("/login")
+    public Usuario login(@RequestBody Usuario usuario) {
+        return usuarioService.login(usuario.getEmail(), usuario.getSenha());
     }
 
 }

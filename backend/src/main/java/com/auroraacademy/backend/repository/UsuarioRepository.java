@@ -1,5 +1,7 @@
 package com.auroraacademy.backend.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.auroraacademy.backend.models.Usuario;
@@ -7,4 +9,6 @@ import com.auroraacademy.backend.models.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
     boolean existsByEmail(String email);
+
+    Optional<Usuario> findByEmail(String email);
 }

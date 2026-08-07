@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora Academy</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="index.html">Aurora Academy</a>
+
+        <nav class="nav-menu">
+            <a href="#catalogo">Cursos</a>
+            <a href="#sobre">Sobre</a>
+            <a href="login.html">Entrar</a>
+            <a class="btn btn-primary" href="cadastro.html">Criar conta</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span class="eyebrow">Plataforma de cursos online</span>
+                <h1>Aurora Academy</h1>
+                <p>
+                    Aprenda no seu ritmo, acompanhe seu progresso e construa uma trilha de estudos com cursos organizados por modulos e aulas.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#catalogo">Ver cursos</a>
+                    <a class="btn btn-secondary" href="login.html">Ja tenho conta</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="catalogo">
+            <div class="section-header">
+                <div>
+                    <span class="eyebrow">Catalogo</span>
+                    <h2>Cursos em destaque</h2>
+                </div>
+                <a class="section-link" href="cursos.html">Ver todos</a>
+            </div>
+
+            <div class="course-grid">
+                <article class="course-card">
+                    <div class="course-cover"></div>
+                    <div class="course-info">
+                        <span class="course-tag">Programacao</span>
+                        <h3>Java com Spring Boot</h3>
+                        <p>Crie APIs REST, modele entidades e conecte seu backend a um banco de dados.</p>
+                        <div class="course-meta">
+                            <span>Iniciante</span>
+                            <span>24h</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card">
+                    <div class="course-cover"></div>
+                    <div class="course-info">
+                        <span class="course-tag">Frontend</span>
+                        <h3>HTML, CSS e JavaScript</h3>
+                        <p>Monte interfaces bonitas, responsivas e integradas com APIs.</p>
+                        <div class="course-meta">
+                            <span>Intermediario</span>
+                            <span>18h</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="course-card">
+                    <div class="course-cover"></div>
+                    <div class="course-info">
+                        <span class="course-tag">Dados</span>
+                        <h3>Python para Relatorios</h3>
+                        <p>Leia arquivos, gere resumos e transforme dados em graficos e insights.</p>
+                        <div class="course-meta">
+                            <span>Iniciante</span>
+                            <span>12h</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section split-section" id="sobre">
+            <div>
+                <span class="eyebrow">Experiencia</span>
+                <h2>Uma plataforma para alunos, professores e administradores.</h2>
+            </div>
+
+            <div class="feature-list">
+                <article>
+                    <h3>Aluno</h3>
+                    <p>Matriculas, aulas, progresso e certificados.</p>
+                </article>
+                <article>
+                    <h3>Professor</h3>
+                    <p>Cria cursos, modulos e aulas para publicar no catalogo.</p>
+                </article>
+                <article>
+                    <h3>Admin</h3>
+                    <p>Gerencia usuarios, cursos e metricas da plataforma.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script src="../script/index.js"></script>
+</body>
+</html>

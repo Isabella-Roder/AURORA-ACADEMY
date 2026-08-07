@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Aurora Academy</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="index.html">Aurora Academy</a>
+
+        <nav class="nav-menu">
+            <a href="index.html">Inicio</a>
+            <a href="cadastro.html">Criar conta</a>
+        </nav>
+    </header>
+
+    <main class="auth-page">
+        <section class="auth-panel">
+            <div class="auth-copy">
+                <span class="eyebrow">Entrar</span>
+                <h1>Continue aprendendo de onde parou.</h1>
+                <p>Acesse sua area para ver cursos, aulas, progresso e proximos passos.</p>
+            </div>
+
+            <form class="auth-form" id="form-login">
+                <div class="form-group">
+                    <label for="email-login">Email</label>
+                    <input type="email" id="email-login" placeholder="seuemail@exemplo.com" autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="senha-login">Senha</label>
+                    <input type="password" id="senha-login" placeholder="Digite sua senha" autocomplete="current-password">
+                </div>
+
+                <p class="form-message" id="mensagem-login"></p>
+
+                <button class="btn btn-primary" id="btn-login" type="submit">Entrar</button>
+
+                <p class="auth-footer">
+                    Ainda nao tem conta?
+                    <a href="cadastro.html">Criar conta</a>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <script src="../script/login.js"></script>
+</body>
+</html>

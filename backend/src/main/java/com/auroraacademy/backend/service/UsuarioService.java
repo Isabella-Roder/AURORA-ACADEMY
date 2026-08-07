@@ -87,4 +87,19 @@ public class UsuarioService {
             throw new IllegalArgumentException("Email ja cadastrado.");
         }
     }
+
+    public Usuario login(String email, String senha) {
+        Usuario usuario = usuarioRepository.findByEmail(email)
+            .orElseThrow(() -> new IllegalArgumentException("Email ou senha invalidos."));
+
+        if (!usuario.getSenha().equals(senha)) {
+            throw new IllegalArgumentException("Email ou senha invalidos.");
+        }
+
+        if (usuario.getAtivo() != null && !usuario.getAtivo()) {
+            throw new IllegalArgumentException("Usuario inativo.");
+        }
+
+        return usuario;
+    }
 }

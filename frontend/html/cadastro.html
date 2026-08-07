@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro | Aurora Academy</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="index.html">Aurora Academy</a>
+
+        <nav class="nav-menu">
+            <a href="index.html">Inicio</a>
+            <a href="login.html">Entrar</a>
+        </nav>
+    </header>
+
+    <main class="auth-page">
+        <section class="auth-panel">
+            <div class="auth-copy">
+                <span class="eyebrow">Criar conta</span>
+                <h1>Comece sua jornada na Aurora.</h1>
+                <p>Crie seu acesso como aluno, professor ou administrador para entrar na plataforma.</p>
+            </div>
+
+            <form class="auth-form" id="form-cadastro">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" placeholder="Digite seu nome" autocomplete="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="seuemail@exemplo.com" autocomplete="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" placeholder="Crie uma senha" autocomplete="new-password">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmar-senha">Confirmar senha</label>
+                    <input type="password" id="confirmar-senha" placeholder="Repita a senha" autocomplete="new-password">
+                </div>
+
+                <div class="form-group">
+                    <label for="perfil">Perfil</label>
+                    <select id="perfil">
+                        <option value="">Selecione o perfil</option>
+                        <option value="ALUNO">Aluno</option>
+                        <option value="PROFESSOR">Professor</option>
+                        <option value="ADMIN">Administrador</option>
+                    </select>
+                </div>
+
+                <p class="form-message" id="mensagem-cadastro"></p>
+
+                <button class="btn btn-primary" id="btn-cadastrar" type="submit">Criar conta</button>
+
+                <p class="auth-footer">
+                    Ja tem conta?
+                    <a href="login.html">Entrar agora</a>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <script src="../script/cadastro.js"></script>
+</body>
+</html>

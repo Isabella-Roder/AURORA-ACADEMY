@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area do Aluno | Aurora Academy</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="aluno-dashboard.html">Aurora Academy</a>
+        <nav class="nav-menu">
+            <a href="index.html">Catalogo</a>
+            <a href="#">Meus cursos</a>
+            <a href="#">Certificados</a>
+            <button class="btn btn-secondary btn-small" id="btn-logout" type="button">Sair</button>
+        </nav>
+    </header>
+
+    <main class="dashboard-page">
+        <section class="dashboard-hero">
+            <div>
+                <span class="eyebrow">Area do aluno</span>
+                <h1>Ola, <span id="usuario-nome">aluno</span>.</h1>
+                <p>Continue seus estudos, acompanhe progresso e encontre a proxima aula.</p>
+            </div>
+            <div class="profile-chip">
+                <span>Perfil</span>
+                <strong id="usuario-perfil">ALUNO</strong>
+            </div>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <span>Cursos matriculados</span>
+                <strong id="total-cursos">0</strong>
+            </article>
+            <article class="stat-card">
+                <span>Aulas concluidas</span>
+                <strong id="total-aulas">0</strong>
+            </article>
+            <article class="stat-card">
+                <span>Certificados</span>
+                <strong id="total-certificados">0</strong>
+            </article>
+        </section>
+
+        <section class="dashboard-grid">
+            <article class="panel">
+                <div class="panel-header">
+                    <h2>Meus cursos</h2>
+                    <a href="#">Ver todos</a>
+                </div>
+                <div class="empty-state">
+                    <p>Voce ainda nao esta matriculada em nenhum curso.</p>
+                    <a class="btn btn-primary" href="index.html#catalogo">Explorar cursos</a>
+                </div>
+            </article>
+
+            <article class="panel">
+                <div class="panel-header">
+                    <h2>Proxima aula</h2>
+                </div>
+                <div class="lesson-preview">
+                    <span>Nenhuma aula em andamento</span>
+                    <p>Quando voce se matricular em um curso, a proxima aula aparece aqui.</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="../script/dashboard.js"></script>
+</body>
+</html>

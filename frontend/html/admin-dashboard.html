@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administracao | Aurora Academy</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="admin-dashboard.html">Aurora Academy</a>
+        <nav class="nav-menu">
+            <a href="#">Usuarios</a>
+            <a href="#">Cursos</a>
+            <a href="#">Relatorios</a>
+            <button class="btn btn-secondary btn-small" id="btn-logout" type="button">Sair</button>
+        </nav>
+    </header>
+
+    <main class="dashboard-page">
+        <section class="dashboard-hero">
+            <div>
+                <span class="eyebrow">Administracao</span>
+                <h1>Ola, <span id="usuario-nome">admin</span>.</h1>
+                <p>Controle usuarios, acompanhe cursos publicados e cuide da plataforma.</p>
+            </div>
+            <div class="profile-chip">
+                <span>Perfil</span>
+                <strong id="usuario-perfil">ADMIN</strong>
+            </div>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <span>Usuarios</span>
+                <strong id="total-usuarios">0</strong>
+            </article>
+            <article class="stat-card">
+                <span>Cursos</span>
+                <strong id="total-cursos">0</strong>
+            </article>
+            <article class="stat-card">
+                <span>Publicados</span>
+                <strong id="total-publicados">0</strong>
+            </article>
+        </section>
+
+        <section class="dashboard-grid">
+            <article class="panel">
+                <div class="panel-header">
+                    <h2>Resumo da plataforma</h2>
+                    <a href="#">Atualizar</a>
+                </div>
+                <div class="empty-state">
+                    <p>Os indicadores serao conectados nas rotas de usuarios e cursos.</p>
+                </div>
+            </article>
+
+            <article class="panel">
+                <div class="panel-header">
+                    <h2>Proximas tarefas</h2>
+                </div>
+                <ul class="task-list">
+                    <li>Criar CRUD visual de usuarios.</li>
+                    <li>Criar CRUD visual de cursos.</li>
+                    <li>Criar filtros por status e perfil.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <script src="../script/dashboard.js"></script>
+</body>
+</html>

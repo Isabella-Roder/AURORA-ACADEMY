@@ -53,28 +53,28 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 
 ### 4.1 Usuarios
 
-- [ ] Entidade `Usuario`.
-- [ ] Enum `PerfilUsuario`.
-- [ ] Cadastro de usuario.
-- [ ] Login simples por email e senha.
-- [ ] Validacao de email unico.
-- [ ] Validacao de campos obrigatorios.
-- [ ] Listagem de usuarios.
-- [ ] Edicao de usuario.
+- [x] Entidade `Usuario`.
+- [x] Enum `PerfilUsuario`.
+- [x] Cadastro de usuario.
+- [x] Login simples por email e senha.
+- [x] Validacao de email unico.
+- [x] Validacao de campos obrigatorios.
+- [x] Listagem de usuarios.
+- [x] Edicao de usuario.
 - [ ] Ativacao/desativacao de usuario.
 
 ### 4.2 Cursos
 
-- [ ] Entidade `Curso`.
-- [ ] Enum `StatusCurso`.
-- [ ] Criar curso.
-- [ ] Listar cursos.
-- [ ] Buscar curso por ID.
-- [ ] Editar curso.
+- [x] Entidade `Curso`.
+- [x] Enum `StatusCurso`.
+- [x] Criar curso.
+- [x] Listar cursos.
+- [x] Buscar curso por ID.
+- [x] Editar curso.
 - [ ] Publicar curso.
 - [ ] Arquivar curso.
-- [ ] Filtrar cursos publicados.
-- [ ] Filtrar cursos por professor.
+- [x] Filtrar cursos publicados.
+- [x] Filtrar cursos por professor.
 
 ### 4.3 Modulos do Curso
 
@@ -138,15 +138,15 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 
 ### 5.1 Area Publica
 
-- [ ] Landing/catalogo inicial.
-- [ ] Tela de login.
-- [ ] Tela de cadastro.
+- [x] Landing/catalogo inicial.
+- [x] Tela de login.
+- [x] Tela de cadastro.
 - [ ] Catalogo de cursos publicados.
 - [ ] Detalhe publico do curso.
 
 ### 5.2 Area do Aluno
 
-- [ ] Dashboard do aluno.
+- [x] Dashboard do aluno.
 - [ ] Meus cursos.
 - [ ] Tela de estudo do curso.
 - [ ] Tela de aula.
@@ -155,7 +155,7 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 
 ### 5.3 Area do Professor
 
-- [ ] Dashboard do professor.
+- [x] Dashboard do professor.
 - [ ] Meus cursos criados.
 - [ ] Formulario de curso.
 - [ ] Gerenciamento de modulos.
@@ -164,7 +164,7 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 
 ### 5.4 Area Administrativa
 
-- [ ] Dashboard admin.
+- [x] Dashboard admin.
 - [ ] CRUD de usuarios.
 - [ ] CRUD de cursos.
 - [ ] Moderacao de cursos.
@@ -184,12 +184,12 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 
 ## 7. Backend Spring Boot
 
-- [ ] Criar pacotes `model`, `repository`, `service`, `controller`, `dto` e `enums`.
-- [ ] Configurar banco H2.
-- [ ] Configurar CORS para o frontend.
+- [x] Criar pacotes `model`, `repository`, `service`, `controller`, `dto` e `enums`.
+- [x] Configurar banco H2.
+- [x] Configurar CORS para o frontend.
 - [ ] Criar tratamento basico de erros.
-- [ ] Criar endpoints REST para usuarios.
-- [ ] Criar endpoints REST para cursos.
+- [x] Criar endpoints REST para usuarios.
+- [x] Criar endpoints REST para cursos.
 - [ ] Criar endpoints REST para modulos.
 - [ ] Criar endpoints REST para aulas.
 - [ ] Criar endpoints REST para matriculas.
@@ -198,14 +198,14 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 
 ## 8. Frontend
 
-- [ ] Criar estrutura `frontend/html`, `frontend/css` e `frontend/script`.
-- [ ] Criar CSS base.
+- [x] Criar estrutura `frontend/html`, `frontend/css` e `frontend/script`.
+- [x] Criar CSS base.
 - [ ] Criar layout reutilizavel.
-- [ ] Criar chamadas `fetch` para o backend.
-- [ ] Salvar usuario logado no `localStorage`.
-- [ ] Separar menus por perfil.
-- [ ] Mostrar mensagens de erro e sucesso.
-- [ ] Criar responsividade basica.
+- [x] Criar chamadas `fetch` para o backend.
+- [x] Salvar usuario logado no `localStorage`.
+- [~] Separar menus por perfil.
+- [x] Mostrar mensagens de erro e sucesso.
+- [x] Criar responsividade basica.
 
 ## 9. MVP - Primeira Versao
 
@@ -245,7 +245,10 @@ Para considerar a primeira versao pronta:
 
 - [x] Projeto Spring Boot gerado.
 - [x] Git configurado.
-- [~] Estrutura inicial criada.
-- [ ] Banco H2 ainda precisa ser configurado.
-- [ ] Backend ainda precisa subir sem erro.
-- [ ] Primeiras entidades ainda nao foram criadas.
+- [x] Estrutura inicial criada.
+- [x] Banco H2 configurado.
+- [x] Backend subindo sem erro.
+- [x] Entidade `Usuario` criada.
+- [x] Login e cadastro funcionando no frontend.
+- [x] Dashboards iniciais criados.
+- [~] Modulo de cursos iniciado.

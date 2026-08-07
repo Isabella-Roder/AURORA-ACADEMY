@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area do Professor | Aurora Academy</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="professor-dashboard.html">Aurora Academy</a>
+        <nav class="nav-menu">
+            <a href="#">Meus cursos</a>
+            <a href="#">Novo curso</a>
+            <a href="#">Alunos</a>
+            <button class="btn btn-secondary btn-small" id="btn-logout" type="button">Sair</button>
+        </nav>
+    </header>
+
+    <main class="dashboard-page">
+        <section class="dashboard-hero">
+            <div>
+                <span class="eyebrow">Area do professor</span>
+                <h1>Ola, <span id="usuario-nome">professor</span>.</h1>
+                <p>Gerencie cursos, organize modulos e acompanhe seus alunos.</p>
+            </div>
+            <div class="profile-chip">
+                <span>Perfil</span>
+                <strong id="usuario-perfil">PROFESSOR</strong>
+            </div>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <span>Cursos criados</span>
+                <strong id="total-cursos">0</strong>
+            </article>
+            <article class="stat-card">
+                <span>Alunos matriculados</span>
+                <strong id="total-alunos">0</strong>
+            </article>
+            <article class="stat-card">
+                <span>Cursos publicados</span>
+                <strong id="total-publicados">0</strong>
+            </article>
+        </section>
+
+        <section class="dashboard-grid">
+            <article class="panel">
+                <div class="panel-header">
+                    <h2>Meus cursos</h2>
+                    <a href="#">Novo curso</a>
+                </div>
+                <div class="empty-state">
+                    <p>Voce ainda nao criou cursos.</p>
+                    <a class="btn btn-primary" href="#">Criar primeiro curso</a>
+                </div>
+            </article>
+
+            <article class="panel">
+                <div class="panel-header">
+                    <h2>Pendencias</h2>
+                </div>
+                <ul class="task-list">
+                    <li>Criar tela de cursos do professor.</li>
+                    <li>Conectar lista de cursos ao backend.</li>
+                    <li>Criar modulos e aulas.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <script src="../script/dashboard.js"></script>
+</body>
+</html>

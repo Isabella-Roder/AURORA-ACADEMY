@@ -1,0 +1,19 @@
+# Java / Spring
+target/
+*.class
+
+# Banco local
+data/
+*.mv.db
+*.trace.db
+
+# IDE
+.vscode/
+.idea/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

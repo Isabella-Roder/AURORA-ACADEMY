@@ -2,7 +2,9 @@ package com.auroraacademy.backend.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -64,6 +66,11 @@ public class CursoController {
     @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id) {
         cursoService.deletar(id);
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String> tratarErroValidacao(IllegalArgumentException erro) {
+        return ResponseEntity.badRequest().body(erro.getMessage());
     }
 
 }

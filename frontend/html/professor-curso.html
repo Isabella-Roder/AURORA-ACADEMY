@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Curso | Aurora Academy</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="professor-dashboard.html">Aurora Academy</a>
+
+        <nav class="nav-menu">
+            <a href="professor-dashboard.html">Dashboard</a>
+            <a href="cursos.html">Catalogo</a>
+            <button class="btn btn-secondary btn-small" id="btn-logout" type="button">Sair</button>
+        </nav>
+    </header>
+
+    <main class="form-page">
+        <section class="form-hero">
+            <div>
+                <span class="eyebrow">Professor</span>
+                <h1>Criar novo curso.</h1>
+                <p>Cadastre as informacoes principais do curso. Depois a gente adiciona modulos e aulas.</p>
+            </div>
+        </section>
+
+        <section class="form-shell">
+            <form class="resource-form" id="form-curso">
+                <div class="form-grid">
+                    <div class="form-group span-2">
+                        <label for="curso-titulo">Titulo</label>
+                        <input type="text" id="curso-titulo" placeholder="Ex: Java com Spring Boot">
+                    </div>
+
+                    <div class="form-group span-2">
+                        <label for="curso-descricao">Descricao</label>
+                        <textarea id="curso-descricao" placeholder="Explique o que o aluno vai aprender"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="curso-categoria">Categoria</label>
+                        <input type="text" id="curso-categoria" placeholder="Ex: Programacao">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="curso-nivel">Nivel</label>
+                        <select id="curso-nivel">
+                            <option value="">Selecione</option>
+                            <option value="INICIANTE">Iniciante</option>
+                            <option value="INTERMEDIARIO">Intermediario</option>
+                            <option value="AVANCADO">Avancado</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="curso-carga-horaria">Carga horaria</label>
+                        <input type="time" id="curso-carga-horaria">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="curso-preco">Preco</label>
+                        <input type="number" id="curso-preco" placeholder="Ex: 149.90" min="0" step="0.01">
+                    </div>
+
+                    <div class="form-group span-2">
+                        <label for="curso-img-url">URL da imagem</label>
+                        <input type="url" id="curso-img-url" placeholder="https://exemplo.com/imagem.jpg">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="curso-status">Status</label>
+                        <select id="curso-status">
+                            <option value="RASCUNHO">Rascunho</option>
+                            <option value="PUBLICADO">Publicado</option>
+                            <option value="ARQUIVADO">Arquivado</option>
+                        </select>
+                    </div>
+                </div>
+
+                <p class="form-message" id="mensagem-curso"></p>
+
+                <div class="form-actions">
+                    <a class="btn btn-secondary" href="professor-dashboard.html">Cancelar</a>
+                    <button class="btn btn-primary" id="btn-salvar-curso" type="submit">Salvar curso</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="../script/dashboard.js"></script>
+    <script src="../script/professor-curso.js"></script>
+</body>
+</html>

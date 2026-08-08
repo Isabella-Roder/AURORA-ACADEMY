@@ -10,7 +10,7 @@ const inputSenha = document.getElementById("senha");
 const inputConfirmaSenha = document.getElementById("confirmar-senha");
 const selectPerfil = document.getElementById("perfil");
 
-form.addEventListener("click", async (event) => {
+form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     mensagemCadastro.textContent = "";
@@ -40,7 +40,7 @@ form.addEventListener("click", async (event) => {
 
     try {
         btnCadastrar.disabled = true;
-        btnCadastrar.textContent = "Criando conta..."
+        btnCadastrar.textContent = "Criando conta...";
 
         const resposta = await fetch(`${API_URL}/usuarios`, {
             method: "POST",

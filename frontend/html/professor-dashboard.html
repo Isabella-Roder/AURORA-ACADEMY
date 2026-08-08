@@ -11,7 +11,7 @@
         <a class="brand" href="professor-dashboard.html">Aurora Academy</a>
         <nav class="nav-menu">
             <a href="#">Meus cursos</a>
-            <a href="#">Novo curso</a>
+            <a href="professor-curso.html">Novo curso</a>
             <a href="#">Alunos</a>
             <button class="btn btn-secondary btn-small" id="btn-logout" type="button">Sair</button>
         </nav>
@@ -49,11 +49,14 @@
             <article class="panel">
                 <div class="panel-header">
                     <h2>Meus cursos</h2>
-                    <a href="#">Novo curso</a>
+                    <a href="professor-curso.html">Novo curso</a>
                 </div>
-                <div class="empty-state">
+
+                <div class="course-list" id="lista-cursos-professor"></div>
+
+                <div class="empty-state" id="estado-vazio-cursos">
                     <p>Voce ainda nao criou cursos.</p>
-                    <a class="btn btn-primary" href="#">Criar primeiro curso</a>
+                    <a class="btn btn-primary" id="btn-criar-primeiro-curso" href="professor-curso.html">Criar primeiro curso</a>
                 </div>
             </article>
 
@@ -71,5 +74,6 @@
     </main>
 
     <script src="../script/dashboard.js"></script>
+    <script src="../script/professor-dashboard.js"></script>
 </body>
 </html>

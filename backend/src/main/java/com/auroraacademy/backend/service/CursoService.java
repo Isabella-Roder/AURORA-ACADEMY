@@ -6,17 +6,22 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.auroraacademy.backend.enums.NivelCurso;
+import com.auroraacademy.backend.enums.PerfilUsuario;
 import com.auroraacademy.backend.enums.StatusCurso;
 import com.auroraacademy.backend.models.Curso;
+import com.auroraacademy.backend.models.Usuario;
 import com.auroraacademy.backend.repository.CursoRepository;
+import com.auroraacademy.backend.repository.UsuarioRepository;
 
 @Service
 public class CursoService {
     
     private final CursoRepository cursoRepository;
+    private final UsuarioRepository usuarioRepository;
 
-    public CursoService(CursoRepository cursoRepository) {
+    public CursoService(CursoRepository cursoRepository, UsuarioRepository usuarioRepository) {
         this.cursoRepository = cursoRepository;
+        this.usuarioRepository = usuarioRepository;
     }
 
     public List<Curso> listar() {
@@ -63,6 +68,14 @@ public class CursoService {
     public Curso cadastrar(Curso curso) {
         validacao(curso);
 
+        Usuario professor = usuarioRepository.findById(curso.getProfessor().getId())
+            .orElseThrow(() -> new IllegalArgumentException("Professor nao encontrado."));
+
+        if (professor.getPerfil() != PerfilUsuario.PROFESSOR) {
+            throw new IllegalArgumentException("Usuario informado nao e professor.");
+        }
+
+        curso.setProfessor(professor);
         curso.setDataCriacao(LocalDate.now());
 
         return cursoRepository.save(curso);

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhe do Curso | Aurora Academy</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="index.html">Aurora Academy</a>
+
+        <nav class="nav-menu">
+            <a href="index.html">Inicio</a>
+            <a href="cursos.html">Cursos</a>
+            <a href="login.html">Entrar</a>
+            <a class="btn btn-primary" href="cadastro.html">Criar conta</a>
+        </nav>
+    </header>
+
+    <main class="course-detail-page">
+        <section class="course-detail-hero">
+            <div class="course-detail-copy">
+                <span class="eyebrow" id="curso-categoria">Categoria</span>
+                <h1 id="curso-titulo">Carregando curso...</h1>
+                <p id="curso-descricao">Buscando informacoes do curso.</p>
+
+                <div class="course-detail-meta">
+                    <span id="curso-nivel">Nivel</span>
+                    <span id="curso-carga-horaria">Carga horaria</span>
+                    <span id="curso-status">Status</span>
+                </div>
+            </div>
+
+            <aside class="course-checkout-panel">
+                <div class="course-price-box">
+                    <span>Investimento</span>
+                    <strong id="curso-preco">R$ 0,00</strong>
+                </div>
+
+                <div class="course-teacher-box">
+                    <span>Professor</span>
+                    <strong id="curso-professor">Professor</strong>
+                </div>
+
+                <button class="btn btn-primary" id="btn-matricular" type="button">Matricular-se</button>
+                <p class="form-message" id="mensagem-matricula"></p>
+            </aside>
+        </section>
+
+        <section class="course-detail-content">
+            <article class="panel">
+                <div class="panel-header">
+                    <h2>Sobre o curso</h2>
+                </div>
+                <p id="curso-descricao-completa">Carregando descricao completa.</p>
+            </article>
+
+            <article class="panel">
+                <div class="panel-header">
+                    <h2>O que voce vai acessar</h2>
+                </div>
+                <ul class="task-list">
+                    <li>Aulas organizadas por modulos.</li>
+                    <li>Conteudo liberado no painel do aluno.</li>
+                    <li>Progresso acompanhado pela plataforma.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <script src="../script/curso-detalhe.js"></script>
+</body>
+</html>

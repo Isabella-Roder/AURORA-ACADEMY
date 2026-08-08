@@ -3,7 +3,7 @@ const API_URL = "http://localhost:8080";
 const buscaCurso = document.getElementById("busca-curso");
 const filtroNivel = document.getElementById("filtro-nivel");
 const filtroCategoria = document.getElementById("filtro-categoria");
-const totalCusoCatalogo = document.getElementById("total-cursos-catalogo");
+const totalCursosCatalogo = document.getElementById("total-cursos-catalogo");
 const listaCursos = document.getElementById("lista-cursos");
 
 let cursos = [];
@@ -33,12 +33,14 @@ async function carregarCurso() {
             throw new Error(erro || "Erro ao buscar cursos.");
         }
 
-        cursos = await resposta.json();
+        const todosCursos = await resposta.json();
+        cursos = todosCursos.filter((curso) => curso.statusCurso === "PUBLICADO");
+        renderizarCursos(cursos);
 
     } catch (erro) {
         console.error(erro);
         listaCursos.innerHTML = "<p>Nao foi possivel carregar.</p>";
-        totalCusoCatalogo.textContent = "0 cursos";
+        totalCursosCatalogo.textContent = "0 cursos";
     }
 }
 
@@ -49,11 +51,11 @@ function renderizarCursos(lista) {
                 <p>Nenhum curso encontrado.</p>
             </div>
         `;
-        totalCusoCatalogo.textContent = "0 cursos";
+        totalCursosCatalogo.textContent = "0 cursos";
         return;
     }
 
-    totalCusoCatalogo.textContent = `${lista.length} curso${lista.length > 1 ? "s" : ""}`;
+    totalCursosCatalogo.textContent = `${lista.length} curso${lista.length > 1 ? "s" : ""}`;
 
     listaCursos.innerHTML = lista.map((curso) => {
         const titulo = curso.titulo || "Curso sem titulo";
@@ -82,7 +84,7 @@ function renderizarCursos(lista) {
                         <span>${formatarTexto(curso.statusCurso || "RASCUNHO")}</span>
                     </div>
 
-                    <a class="btn btn-secondary" href="#">Ver detalhes</a>
+                    <a class="btn btn-secondary" href="curso-detalhe.html?id=${curso.id}">Ver detalhes</a>
                 </div>
             </article>
         `;

@@ -15,6 +15,9 @@ const cursoDescricaoCompleta = document.getElementById("curso-descricao-completa
 const mensagemMatricula = document.getElementById("mensagem-matricula");
 const btnMatricular = document.getElementById("btn-matricular");
 
+const listaModulos = document.getElementById("lista-modulos");
+const estadoVazioModulos = document.getElementById("estado-vazio-modulos");
+
 function formatarMoeda(valor) {
     return Number(valor).toLocaleString("pt-BR", {
         style: "currency",
@@ -76,6 +79,83 @@ async function carregarDetalheCurso() {
     }
 }
 
+async function carregarModulos() {
+    if (!cursoId) {
+        return;
+    }
+
+    try {
+        const resposta = await fetch(`${API_URL}/modulos/curso/${cursoId}`);
+
+        if (!resposta.ok) {
+            const erro = await resposta.text();
+            throw new Error(erro || "Erro ao carregar modulos.");
+        }
+
+        const modulos = await resposta.json();
+
+        await renderizarModulos(modulos);
+    } catch (erro) {
+        console.error(erro)
+        listaModulos.innerHTML = `
+            <p class="form-message">Erro ao carregar modulos.</p>
+        `;
+    }
+}
+
+async function buscarAulasDoModulo(moduloId) {
+    const resposta = await fetch(`${API_URL}/aulas/modulos/${moduloId}`);
+
+    if (!resposta.ok) {
+        const erro = await resposta.text();
+        throw new Error(erro || "Erro ao carregar aulas.");
+    }
+
+    return await resposta.json();
+}
+
+async function renderizarModulos(modulos) {
+    listaModulos.innerHTML = "";
+
+    if (modulos.length === 0) {
+        estadoVazioModulos.style.display = "block";
+        return;
+    }
+
+    estadoVazioModulos.style.display = "none";
+
+    for (const modulo of modulos) {
+        const aulas = await buscarAulasDoModulo(modulo.id);
+
+        const blocoModulo = document.createElement("article");
+        blocoModulo.classList.add("module-card");
+
+        blocoModulo.innerHTML = `
+            <div class="module-header">
+                <span>Modulo ${modulo.ordem}</span>
+                <h3>${modulo.titulo}</h3>
+            </div>
+
+            <div class="lesson-table">
+                ${aulas.length === 0 ? `
+                    <p>Nenhuma aula cadastrada neste modulo.</p>
+                ` : aulas.map((aula) => `
+                    <div class="lesson-row">
+                        <span>${aula.ordem}</span>
+                        <strong>${aula.titulo}</strong>
+                        <small>${aula.duracao}</small>
+                        <a class="btn btn-secondary btn-small" href="${aula.urlVideo}" target="_blank">
+                            Assistir
+                        </a>
+                    </div>
+                `).join("")}
+            </div>
+        `;
+        
+        listaModulos.appendChild(blocoModulo);
+    }
+}
+
 async function matricularAluno() {
     mensagemMatricula.textContent = "";
 
@@ -134,4 +214,9 @@ async function matricularAluno() {
 
 btnMatricular.addEventListener("click", matricularAluno);
 
-carregarDetalheCurso();
+async function iniciarPagina() {
+    await carregarDetalheCurso();
+    await carregarModulos();
+}
+
+iniciarPagina();

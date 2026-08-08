@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conteudo do Curso | Aurora Academy</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="professor-dashboard.html">Aurora Academy</a>
+
+        <nav class="nav-menu">
+            <a href="professor-dashboard.html">Dashboard</a>
+            <a href="professor-curso.html">Novo curso</a>
+            <a href="cursos.html">Catalogo</a>
+            <button class="btn btn-secondary btn-small" id="btn-logout" type="button">Sair</button>
+        </nav>
+    </header>
+
+    <main class="dashboard-page">
+        <section class="dashboard-hero">
+            <div>
+                <span class="eyebrow">Conteudo do curso</span>
+                <h1 id="curso-titulo">Carregando curso...</h1>
+                <p id="curso-descricao">Organize modulos e aulas para este curso.</p>
+            </div>
+
+            <div class="profile-chip">
+                <span>Status</span>
+                <strong id="curso-status">CURSO</strong>
+            </div>
+        </section>
+
+        <section class="dashboard-grid">
+            <article class="panel">
+                <div class="panel-header">
+                    <h2>Novo modulo</h2>
+                </div>
+
+                <form class="resource-form" id="form-modulo">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="modulo-titulo">Titulo do modulo</label>
+                            <input type="text" id="modulo-titulo" placeholder="Ex: Introducao">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="modulo-ordem">Ordem</label>
+                            <input type="number" id="modulo-ordem" placeholder="Ex: 1" min="1">
+                        </div>
+                    </div>
+
+                    <p class="form-message" id="mensagem-modulo"></p>
+
+                    <div class="form-actions">
+                        <button class="btn btn-primary" id="btn-criar-modulo" type="submit">Criar modulo</button>
+                    </div>
+                </form>
+            </article>
+
+            <article class="panel">
+                <div class="panel-header">
+                    <h2>Modulos e aulas</h2>
+                </div>
+
+                <div class="module-list" id="lista-modulos-professor">
+                    <div class="empty-state" id="estado-vazio-modulos-professor">
+                        <p>Nenhum modulo cadastrado para este curso.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <script src="../script/dashboard.js"></script>
+    <script src="../script/professor-conteudo.js"></script>
+</body>
+</html>

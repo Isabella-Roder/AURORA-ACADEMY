@@ -9,9 +9,9 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 ## 2. Objetivos
 
 - [ ] Criar uma plataforma onde alunos possam se cadastrar e acessar cursos.
-- [ ] Permitir que professores cadastrem cursos, modulos e aulas.
+- [x] Permitir que professores cadastrem cursos, modulos e aulas.
 - [ ] Permitir que administradores gerenciem usuarios e cursos.
-- [ ] Registrar matriculas dos alunos.
+- [x] Registrar matriculas dos alunos.
 - [ ] Controlar progresso das aulas.
 - [ ] Emitir certificado ao concluir um curso.
 - [ ] Criar dashboards para aluno, professor e administrador.
@@ -23,9 +23,9 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 - [ ] Criar conta.
 - [ ] Fazer login.
 - [ ] Ver catalogo de cursos.
-- [ ] Ver detalhes de um curso.
-- [ ] Matricular-se em um curso.
-- [ ] Assistir/acessar aulas.
+- [x] Ver detalhes de um curso.
+- [x] Matricular-se em um curso.
+- [x] Assistir/acessar aulas.
 - [ ] Marcar aula como concluida.
 - [ ] Acompanhar progresso.
 - [ ] Baixar certificado ao concluir o curso.
@@ -35,8 +35,8 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 - [ ] Fazer login.
 - [ ] Criar cursos.
 - [ ] Editar cursos.
-- [ ] Criar modulos.
-- [ ] Criar aulas.
+- [x] Criar modulos.
+- [x] Criar aulas.
 - [ ] Publicar ou arquivar cursos.
 - [ ] Ver alunos matriculados.
 
@@ -78,19 +78,19 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 
 ### 4.3 Modulos do Curso
 
-- [ ] Entidade `ModuloCurso`.
-- [ ] Criar modulo dentro de um curso.
-- [ ] Listar modulos de um curso.
+- [x] Entidade `ModuloCurso`.
+- [x] Criar modulo dentro de um curso.
+- [x] Listar modulos de um curso.
 - [ ] Editar modulo.
 - [ ] Remover modulo.
 - [ ] Ordenar modulos.
 
 ### 4.4 Aulas
 
-- [ ] Entidade `Aula`.
+- [x] Entidade `Aula`.
 - [ ] Enum `TipoAula`.
-- [ ] Criar aula dentro de um modulo.
-- [ ] Listar aulas de um modulo.
+- [x] Criar aula dentro de um modulo.
+- [x] Listar aulas de um modulo.
 - [ ] Editar aula.
 - [ ] Remover aula.
 - [ ] Ordenar aulas.
@@ -101,12 +101,12 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 
 ### 4.5 Matriculas
 
-- [ ] Entidade `Matricula`.
-- [ ] Aluno pode se matricular em curso publicado.
-- [ ] Evitar matricula duplicada no mesmo curso.
-- [ ] Listar cursos matriculados do aluno.
+- [x] Entidade `Matricula`.
+- [x] Aluno pode se matricular em curso publicado.
+- [x] Evitar matricula duplicada no mesmo curso.
+- [x] Listar cursos matriculados do aluno.
 - [ ] Cancelar matricula.
-- [ ] Registrar data da matricula.
+- [x] Registrar data da matricula.
 
 ### 4.6 Progresso
 
@@ -142,12 +142,12 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 - [x] Tela de login.
 - [x] Tela de cadastro.
 - [ ] Catalogo de cursos publicados.
-- [ ] Detalhe publico do curso.
+- [x] Detalhe publico do curso.
 
 ### 5.2 Area do Aluno
 
 - [x] Dashboard do aluno.
-- [ ] Meus cursos.
+- [x] Meus cursos.
 - [ ] Tela de estudo do curso.
 - [ ] Tela de aula.
 - [ ] Tela de progresso.
@@ -156,10 +156,10 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 ### 5.3 Area do Professor
 
 - [x] Dashboard do professor.
-- [ ] Meus cursos criados.
+- [x] Meus cursos criados.
 - [ ] Formulario de curso.
-- [ ] Gerenciamento de modulos.
-- [ ] Gerenciamento de aulas.
+- [x] Gerenciamento de modulos.
+- [x] Gerenciamento de aulas.
 - [ ] Lista de alunos matriculados.
 
 ### 5.4 Area Administrativa
@@ -190,9 +190,9 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 - [ ] Criar tratamento basico de erros.
 - [x] Criar endpoints REST para usuarios.
 - [x] Criar endpoints REST para cursos.
-- [ ] Criar endpoints REST para modulos.
-- [ ] Criar endpoints REST para aulas.
-- [ ] Criar endpoints REST para matriculas.
+- [x] Criar endpoints REST para modulos.
+- [x] Criar endpoints REST para aulas.
+- [x] Criar endpoints REST para matriculas.
 - [ ] Criar endpoints REST para progresso.
 - [ ] Criar endpoints REST para certificados.
 
@@ -211,13 +211,13 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 
 Para considerar a primeira versao pronta:
 
-- [ ] Cadastro e login de usuario.
-- [ ] Perfil de aluno, professor e admin.
+- [x] Cadastro e login de usuario.
+- [x] Perfil de aluno, professor e admin.
 - [ ] CRUD de cursos.
 - [ ] CRUD de modulos.
 - [ ] CRUD de aulas.
-- [ ] Catalogo de cursos.
-- [ ] Matricula do aluno.
+- [x] Catalogo de cursos.
+- [x] Matricula do aluno.
 - [ ] Progresso de aulas.
 - [ ] Certificado visual simples.
 - [ ] Dashboard basico do aluno.

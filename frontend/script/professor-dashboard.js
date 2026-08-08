@@ -68,6 +68,12 @@ function renderizarCursos(cursos) {
                     <span>${curso.nivelCurso}</span>
                     <span>R$ ${Number(curso.preco).toFixed(2)}</span>
                 </div>
+
+                <div class="form-actions">
+                    <a class="btn btn-secondary" href="professor-conteudo.html?id=${curso.id}">
+                        Gerenciar conteudo
+                    </a>
+                </div>
             </div>
         `;
 

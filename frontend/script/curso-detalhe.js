@@ -29,14 +29,33 @@ function formatarTexto(texto) {
         .replace(/^\w/, (letra) => letra.toUpperCase());
 }
 
-async function carregarDetalheCurso() {
-    console.log("ID recebido na URL:", cursoId);
+function mostrarErro(mensagem) {
+    cursoTitulo.textContent = "Nao foi possivel carregar o curso.";
+    cursoDescricao.textContent = mensagem;
+    cursoDescricaoCompleta.textContent = mensagem;
+    btnMatricular.disabled = true;
+}
 
+function renderizarCurso(curso) {
+    cursoCategoria.textContent = curso.categoria || "Categoria";
+    cursoTitulo.textContent = curso.titulo || "Curso sem titulo";
+    cursoDescricao.textContent = curso.descricao || "Sem descricao.";
+    cursoDescricaoCompleta.textContent = curso.descricao || "Sem descricao completa.";
+    cursoNivel.textContent = formatarTexto(curso.nivelCurso || "Nivel nao informado");
+    cursoCargaHoraria.textContent = curso.cargaHoraria || "Carga horaria nao informada";
+    cursoStatus.textContent = formatarTexto(curso.statusCurso || "RASCUNHO");
+    cursoPreco.textContent = curso.preco != null ? formatarMoeda(curso.preco) : "Gratuito";
+
+    if (curso.professor && curso.professor.nome) {
+        cursoProfessor.textContent = curso.professor.nome;
+    } else {
+        cursoProfessor.textContent = "Professor nao informado";
+    }
+}
+
+async function carregarDetalheCurso() {
     if (!cursoId) {
-        cursoTitulo.textContent = "Curso nao encontrado.";
-        cursoDescricao.textContent = "Nenhum curso foi encontrado.";
-        cursoDescricaoCompleta.textContent = "Volte ao catalogo e clique em Ver detalhes de um curso.";
-        btnMatricular.disabled = true;
+        mostrarErro("Volte ao catalogo e clique em Ver detalhes de um curso.");
         return;
     }
 
@@ -49,42 +68,26 @@ async function carregarDetalheCurso() {
         }
 
         const curso = await resposta.json();
-
-        cursoCategoria.textContent = curso.categoria || "Categoria";
-        cursoTitulo.textContent = curso.titulo || "Curso sem titulo";
-        cursoDescricao.textContent = curso.descricao || "Sem descricao.";
-        cursoDescricaoCompleta.textContent = curso.descricao || "Sem descricao completa.";
-
-        cursoNivel.textContent = formatarTexto(curso.nivelCurso || "Nivel nao informado.");
-        cursoCargaHoraria.textContent = curso.cargaHoraria || "Carga horaria nao informada.";
-        cursoStatus.textContent = formatarTexto(curso.statusCurso || "RASCUNHO");
-
-        cursoPreco.textContent = curso.preco != null ? formatarMoeda(curso.preco) : "Gratuito";
-
-        if (curso.professor && curso.professor.nome) {
-            cursoProfessor.textContent = curso.professor.nome;
-        } else {
-            cursoProfessor.textContent = "Professor nao informado.";
-        }
+        renderizarCurso(curso);
 
     } catch (erro) {
         console.error(erro);
-        cursoTitulo.textContent = "Nao foi possivel carregar o curso.";
-        cursoDescricao.textContent = "Tente voltar ao catalogo e abrir novamente.";
-        cursoDescricaoCompleta.textContent = "Erro: " + erro.message;
-
-        btnMatricular.disabled = true;
+        mostrarErro("Erro: " + erro.message);
     }
 }
 
-btnMatricular.addEventListener("click", () => {
+async function matricularAluno() {
+    mensagemMatricula.textContent = "";
+
     const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
 
     if (!usuarioLogado) {
-        mensagemMatricula.textContent = "Faça login para se matricular.";
+        mensagemMatricula.textContent = "Faca login para se matricular.";
+
         setTimeout(() => {
             window.location.href = "login.html";
         }, 900);
+
         return;
     }
 
@@ -93,7 +96,42 @@ btnMatricular.addEventListener("click", () => {
         return;
     }
 
-    mensagemMatricula.textContent = "Matricula ainda sera implementada.";
-});
+    try {
+        btnMatricular.disabled = true;
+        btnMatricular.textContent = "Matriculando...";
+
+        const resposta = await fetch(`${API_URL}/matriculas`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                aluno: {
+                    id: usuarioLogado.id
+                },
+                curso: {
+                    id: Number(cursoId)
+                }
+            })
+        });
+
+        if (!resposta.ok) {
+            const erro = await resposta.text();
+            throw new Error(erro || "Erro ao realizar matricula.");
+        }
+
+        await resposta.json();
+        mensagemMatricula.textContent = "Matricula realizada com sucesso.";
+
+    } catch (erro) {
+        console.error(erro);
+        mensagemMatricula.textContent = "Erro: " + erro.message;
+    } finally {
+        btnMatricular.disabled = false;
+        btnMatricular.textContent = "Matricular-se";
+    }
+}
+
+btnMatricular.addEventListener("click", matricularAluno);
 
 carregarDetalheCurso();

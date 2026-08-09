@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Cursos | Aurora Academy</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="aluno-dashboard.html">Aurora Academy</a>
+
+        <nav class="nav-menu">
+            <a href="aluno-dashboard.html">Dashboard</a>
+            <a href="meus-cursos.html">Meus cursos</a>
+            <a href="cursos.html">Catalogo</a>
+            <a href="#">Certificados</a>
+            <button class="btn btn-secondary btn-small" id="btn-logout" type="button">Sair</button>
+        </nav>
+    </header>
+
+    <main class="dashboard-page">
+        <section class="dashboard-hero">
+            <div>
+                <span class="eyebrow">Area do aluno</span>
+                <h1>Meus cursos</h1>
+                <p>Acompanhe suas matriculas e continue estudando de onde parou.</p>
+            </div>
+
+            <div class="profile-chip">
+                <span>Aluno</span>
+                <strong id="aluno-nome">Carregando</strong>
+            </div>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <span>Matriculas</span>
+                <strong id="total-matriculas">0</strong>
+            </article>
+
+            <article class="stat-card">
+                <span>Em andamento</span>
+                <strong id="total-em-andamento">0</strong>
+            </article>
+
+            <article class="stat-card">
+                <span>Concluidos</span>
+                <strong id="total-concluidos">0</strong>
+            </article>
+        </section>
+
+        <section class="dashboard-grid">
+            <article class="panel">
+                <div class="panel-header">
+                    <div>
+                        <span class="eyebrow">Matriculas</span>
+                        <h2>Cursos matriculados</h2>
+                    </div>
+                    <a href="cursos.html">Explorar catalogo</a>
+                </div>
+
+                <div class="course-list" id="lista-meus-cursos"></div>
+
+                <div class="empty-state" id="estado-vazio-meus-cursos">
+                    <p>Voce ainda nao esta matriculada em nenhum curso.</p>
+                    <a class="btn btn-primary" href="cursos.html">Encontrar cursos</a>
+                </div>
+            </article>
+
+            <aside class="panel">
+                <div class="panel-header">
+                    <div>
+                        <span class="eyebrow">Continuidade</span>
+                        <h2>Proxima aula</h2>
+                    </div>
+                </div>
+
+                <div class="lesson-preview" id="proxima-aula-card">
+                    <span id="proxima-aula-curso">Nenhum curso em andamento</span>
+                    <p id="proxima-aula-titulo">Quando voce comecar um curso, a proxima aula aparece aqui.</p>
+                    <a class="btn btn-secondary" id="btn-continuar-aula" href="#" style="display: none;">Continuar aula</a>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="../script/dashboard.js"></script>
+    <script src="../script/meus-cursos.js"></script>
+</body>
+</html>

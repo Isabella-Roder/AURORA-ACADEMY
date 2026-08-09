@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudar Curso | Aurora Academy</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="aluno-dashboard.html">Aurora Academy</a>
+
+        <nav class="nav-menu">
+            <a href="aluno-dashboard.html">Dashboard</a>
+            <a href="meus-cursos.html">Meus cursos</a>
+            <a href="cursos.html">Catalogo</a>
+            <a href="#">Certificados</a>
+            <button class="btn btn-secondary btn-small" id="btn-logout" type="button">Sair</button>
+        </nav>
+    </header>
+
+    <main class="dashboard-page">
+        <section class="dashboard-hero">
+            <div>
+                <span class="eyebrow" id="curso-categoria">Curso</span>
+                <h1 id="curso-titulo">Carregando curso...</h1>
+                <p id="curso-descricao">Buscando as aulas disponiveis para estudo.</p>
+            </div>
+
+            <div class="profile-chip">
+                <span>Progresso</span>
+                <strong id="curso-progresso">0%</strong>
+            </div>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <span>Modulos</span>
+                <strong id="total-modulos">0</strong>
+            </article>
+
+            <article class="stat-card">
+                <span>Aulas</span>
+                <strong id="total-aulas">0</strong>
+            </article>
+
+            <article class="stat-card">
+                <span>Concluidas</span>
+                <strong id="total-aulas-concluidas">0</strong>
+            </article>
+        </section>
+
+        <section class="dashboard-grid">
+            <article class="panel">
+                <div class="panel-header">
+                    <div>
+                        <span class="eyebrow">Conteudo</span>
+                        <h2>Modulos e aulas</h2>
+                    </div>
+                    <a href="meus-cursos.html">Voltar</a>
+                </div>
+
+                <div class="module-list" id="lista-modulos-estudo">
+                    <div class="empty-state" id="estado-vazio-modulos-estudo">
+                        <p>Nenhuma aula cadastrada para este curso.</p>
+                    </div>
+                </div>
+            </article>
+
+            <aside class="panel">
+                <div class="panel-header">
+                    <div>
+                        <span class="eyebrow">Aula selecionada</span>
+                        <h2 id="aula-titulo">Selecione uma aula</h2>
+                    </div>
+                </div>
+
+                <div class="lesson-preview" id="aula-preview">
+                    <span id="aula-modulo">Nenhum modulo selecionado</span>
+                    <p id="aula-descricao">Clique em uma aula da lista para ver os detalhes.</p>
+
+                    <a class="btn btn-secondary" id="btn-abrir-aula" href="#" target="_blank" style="display: none;">
+                        Abrir aula
+                    </a>
+
+                    <button class="btn btn-primary" id="btn-marcar-concluida" type="button" style="display: none;">
+                        Marcar como concluida
+                    </button>
+
+                    <p class="form-message" id="mensagem-aula"></p>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="../script/dashboard.js"></script>
+    <script src="../script/curso-estudo.js"></script>
+</body>
+</html>

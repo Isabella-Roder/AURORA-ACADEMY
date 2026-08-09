@@ -114,7 +114,7 @@ function renderizarProximaAula(matriculas) {
 
     proximaAulaCurso.textContent = curso.titulo;
     proximaAulaTitulo.textContent = "Continue estudando este curso.";
-    btnContinuarAula.href = `curos-estudo.html?id=${curso.id}`;
+    btnContinuarAula.href = `curso-estudo.html?id=${curso.id}`;
     btnContinuarAula.style.display = "inline-flex";
 }
 

@@ -12,7 +12,7 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 - [x] Permitir que professores cadastrem cursos, modulos e aulas.
 - [ ] Permitir que administradores gerenciem usuarios e cursos.
 - [x] Registrar matriculas dos alunos.
-- [ ] Controlar progresso das aulas.
+- [x] Controlar progresso das aulas.
 - [ ] Emitir certificado ao concluir um curso.
 - [ ] Criar dashboards para aluno, professor e administrador.
 
@@ -26,8 +26,8 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 - [x] Ver detalhes de um curso.
 - [x] Matricular-se em um curso.
 - [x] Assistir/acessar aulas.
-- [ ] Marcar aula como concluida.
-- [ ] Acompanhar progresso.
+- [x] Marcar aula como concluida.
+- [x] Acompanhar progresso.
 - [ ] Baixar certificado ao concluir o curso.
 
 ### 3.2 Professor
@@ -110,10 +110,10 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 
 ### 4.6 Progresso
 
-- [ ] Entidade `ProgressoAula`.
-- [ ] Marcar aula como concluida.
+- [x] Entidade `ProgressoAula`.
+- [x] Marcar aula como concluida.
 - [ ] Remover conclusao de uma aula.
-- [ ] Calcular percentual de progresso do curso.
+- [x] Calcular percentual de progresso do curso.
 - [ ] Mostrar ultima aula acessada.
 - [ ] Marcar curso como concluido ao atingir 100%.
 
@@ -148,9 +148,9 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 
 - [x] Dashboard do aluno.
 - [x] Meus cursos.
-- [ ] Tela de estudo do curso.
-- [ ] Tela de aula.
-- [ ] Tela de progresso.
+- [x] Tela de estudo do curso.
+- [x] Tela de aula.
+- [x] Tela de progresso.
 - [ ] Tela de certificados.
 
 ### 5.3 Area do Professor
@@ -179,7 +179,7 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 - [ ] Apenas curso publicado aparece no catalogo do aluno.
 - [ ] Aluno nao pode se matricular duas vezes no mesmo curso.
 - [ ] Certificado so pode ser gerado com 100% de progresso.
-- [ ] Aula concluida deve contar apenas uma vez no progresso.
+- [x] Aula concluida deve contar apenas uma vez no progresso.
 - [ ] Curso arquivado nao deve aceitar novas matriculas.
 
 ## 7. Backend Spring Boot
@@ -193,7 +193,7 @@ O projeto sera construido como uma aplicacao de portfolio, usando Java Spring Bo
 - [x] Criar endpoints REST para modulos.
 - [x] Criar endpoints REST para aulas.
 - [x] Criar endpoints REST para matriculas.
-- [ ] Criar endpoints REST para progresso.
+- [x] Criar endpoints REST para progresso.
 - [ ] Criar endpoints REST para certificados.
 
 ## 8. Frontend
@@ -218,7 +218,7 @@ Para considerar a primeira versao pronta:
 - [ ] CRUD de aulas.
 - [x] Catalogo de cursos.
 - [x] Matricula do aluno.
-- [ ] Progresso de aulas.
+- [x] Progresso de aulas.
 - [ ] Certificado visual simples.
 - [ ] Dashboard basico do aluno.
 - [ ] Dashboard basico do professor.
@@ -251,4 +251,6 @@ Para considerar a primeira versao pronta:
 - [x] Entidade `Usuario` criada.
 - [x] Login e cadastro funcionando no frontend.
 - [x] Dashboards iniciais criados.
+- [x] Tela de estudo integrada a modulos, aulas e progresso.
+- [x] Registro de aulas concluidas com percentual do curso.
 - [~] Modulo de cursos iniciado.

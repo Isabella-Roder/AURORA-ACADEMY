@@ -22,4 +22,9 @@ public interface MatriculaRepository extends JpaRepository<Matricula, Long> {
 
     boolean existsByAlunoIdAndCursoId(Long alunoId, Long cursoId);
 
+    boolean existsByAlunoIdAndCursoIdAndStatusMatricula(
+        Long alunoId,
+        Long cursoId,
+        StatusMatricula statusMatricula
+    );
 }

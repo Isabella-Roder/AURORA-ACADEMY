@@ -1,39 +1,17 @@
-from selenium import webdriver
-from selenium.webdriver.edge.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from pathlib import Path
-from selenium.common.exceptions import WebDriverException
 
-opcoes = Options()
+from navegador import criar_navegador
 
-perfil_robo = Path.home() / "aurora_selenium_profile"
-perfil_robo.mkdir(exist_ok=True)
-
-opcoes.add_argument(f"--user-data-dir={perfil_robo}")
-opcoes.add_argument("--no-first-run")
-opcoes.add_argument("--no-default-browser-check")
-opcoes.add_argument("--disable-extensions")
-opcoes.add_argument("--disable-crash-reporter")
-opcoes.add_argument("--disable-features=Crashpad")
-opcoes.add_argument("--remote-debugging-pipe")
-
-try:
-    navegador = webdriver.Edge(options=opcoes)
-except WebDriverException as erro:
-    print("Nao consegui abrir o Microsoft Edge pelo Selenium.")
-    print("Feche todas as janelas do Edge e tente rodar de novo.")
-    print("Se continuar, provavelmente o EdgeDriver nao esta compativel com sua versao do Edge.")
-    print("Erro original:")
-    print(erro)
-    raise
+navegador = criar_navegador()
 
 espera = WebDriverWait(navegador, 20)
 
 try :
-    cadastro_url = Path("C:/Users/isabe/Aurora Academy/frontend/html/cadastro.html").as_uri()
+    cadastro_url = (Path(__file__).resolve().parents[1] / "frontend/html/cadastro.html").as_uri()
 
     navegador.get(cadastro_url)
 
@@ -53,14 +31,22 @@ try :
         EC.presence_of_element_located((By.ID, "confirmar-senha"))
     ).send_keys("123456")
 
-    opt = int(input("1. para ALUNO, 2. para PROFESSOR, .3 para ADMIN"))
+    perfis = {
+        "1": "ALUNO",
+        "2": "PROFESSOR",
+        "3": "ADMIN"
+    }
 
-    if opt == 1 :
-        opt = "ALUNO"
-    elif opt == 2 :
-        opt = "PROFESSOR"
-    else :
-        opt = "ADMIN"
+    while True:
+        escolha = input(
+            "Escolha o perfil (1 = ALUNO, 2 = PROFESSOR, 3 = ADMIN): "
+        ).strip()
+
+        opt = perfis.get(escolha)
+        if opt:
+            break
+
+        print("Opcao invalida. Digite somente 1, 2 ou 3.")
     
     Select(navegador.find_element(By.ID, "perfil")).select_by_value(opt)
 

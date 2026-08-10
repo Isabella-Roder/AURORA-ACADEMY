@@ -1,6 +1,7 @@
 package com.auroraacademy.backend.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -27,4 +28,6 @@ public interface MatriculaRepository extends JpaRepository<Matricula, Long> {
         Long cursoId,
         StatusMatricula statusMatricula
     );
+
+    Optional<Matricula> findByAlunoIdAndCursoId(Long alunoId, Long cursoId);
 }

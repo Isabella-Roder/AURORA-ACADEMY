@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.auroraacademy.backend.enums.PerfilUsuario;
 import com.auroraacademy.backend.enums.StatusMatricula;
 import com.auroraacademy.backend.models.Aula;
+import com.auroraacademy.backend.models.Matricula;
 import com.auroraacademy.backend.models.ProgressoAula;
 import com.auroraacademy.backend.models.Usuario;
 import com.auroraacademy.backend.repository.AulaRepository;
@@ -28,6 +29,29 @@ public class ProgressoAulaService {
         this.usuarioRepository = usuarioRepository;
         this.aulaRepository = aulaRepository;
         this.matriculaRepository = matriculaRepository;
+    }
+
+    private void atualizarStatusMatricula(Long alunoId, Long cursoId) {
+        long totalAulas = aulaRepository.countByModuloCursoId(cursoId);
+
+        long aulasConcluidas = progressoAulaRepository.countByAlunoIdAndAulaModuloCursoIdAndConcluidaTrue(alunoId, cursoId);
+
+        Matricula matricula = matriculaRepository.findByAlunoIdAndCursoId(alunoId, cursoId)
+            .orElseThrow(() -> new IllegalArgumentException("Matrícula não encontrada."));
+
+        if (matricula.getStatusMatricula() == StatusMatricula.CANCELADA) {
+            return;
+        }
+
+        boolean cursoConcluido = totalAulas > 0 && aulasConcluidas == totalAulas;
+
+        matricula.setStatusMatricula(
+            cursoConcluido
+                ? StatusMatricula.CONCLUIDA
+                : StatusMatricula.ATIVA  
+        );
+
+        matriculaRepository.save(matricula);
     }
 
     public ProgressoAula marcarConcluida(Long alunoId, Long aulaId) {
@@ -57,14 +81,22 @@ public class ProgressoAulaService {
         progressoAula.setConcluida(true);
         progressoAula.setDataConclusao(LocalDateTime.now());
 
-        return progressoAulaRepository.save(progressoAula);
+        ProgressoAula progressoSalvo = progressoAulaRepository.save(progressoAula);
+
+        atualizarStatusMatricula(alunoId, cursoId);
+
+        return progressoSalvo;
     }
 
     public void desmarcarConcluida(Long alunoId, Long aulaId) {
         ProgressoAula progresso = progressoAulaRepository.findByAlunoIdAndAulaId(alunoId, aulaId)
             .orElseThrow(() -> new IllegalArgumentException("Progresso da aula não encontrado."));
 
+        Long cursoId = progresso.getAula().getModulo().getCurso().getId();
+
         progressoAulaRepository.delete(progresso);
+
+        atualizarStatusMatricula(alunoId, cursoId);
     }
 
     public List<ProgressoAula> listarPorCurso(Long alunoId, Long cursoId) {

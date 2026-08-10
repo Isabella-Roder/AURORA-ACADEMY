@@ -124,6 +124,7 @@ async function renderizarModulos(modulos) {
 
             botaoAula.type = "button";
             botaoAula.classList.add("lesson-row");
+            botaoAula.dataset.aulaId = aula.id;
 
             botaoAula.innerHTML = `
                 <span>${aula.ordem}</span>
@@ -148,8 +149,35 @@ async function renderizarModulos(modulos) {
     quantidadeTotalAulas = quantidadeAulas;
 }
 
+function atualizarDestaquesAulas() {
+    const idsConcluidos = new Set(
+        progressoCurso.filter((progresso) => progresso.concluida)
+            .map((progresso) => progresso.aula.id)
+    );
+
+    const botoes = document.querySelectorAll(".lesson-row[data-aula-id]");
+
+    botoes.forEach((botao) => {
+        const aulaId = Number(botao.dataset.aulaId);
+
+        botao.classList.toggle(
+            "concluida",
+            idsConcluidos.has(aulaId)
+        );
+    });
+}
+
 function selecionarAula(aula, modulo) {
     aulaSelecionada = aula;
+
+    document.querySelectorAll(".lesson-row.selecionada")
+        .forEach((botao) => {
+            botao.classList.remove("selecionada");
+        });
+    
+    const botaoSelecionado = document.querySelector(`.lesson-row[data-aula-id="${aula.id}"]`);
+
+    botaoSelecionado?.classList.add("selecionada");
 
     aulaTitulo.textContent = aula.titulo;
 
@@ -194,6 +222,8 @@ function atualizarResumoProgresso(progressos) {
     barraProgresso.textContent = `${percentual}%`;
 
     cursoProgresso.textContent = `${percentual}%`;
+
+    atualizarDestaquesAulas();
 }
 
 function atualizarEstadoAulaSelecionada() {
@@ -204,6 +234,8 @@ function atualizarEstadoAulaSelecionada() {
     const concluida = progressoCurso.some((progresso) => {
         return progresso.concluida && progresso.aula.id === aulaSelecionada.id;
     });
+
+    aulaStatus.classList.toggle("concluida", concluida);
 
     btnMarcarComoConcluida.dataset.concluida = String(concluida);
 

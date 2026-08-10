@@ -10,4 +10,6 @@ public interface AulaRepository extends JpaRepository<Aula, Long> {
     
     List<Aula> findByModuloId(Long moduloId);
 
+    long countByModuloCursoId(Long cursoId);
+
 }

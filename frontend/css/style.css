@@ -492,6 +492,116 @@ a {
     color: var(--muted);
 }
 
+#barra-progresso {
+    width: 9rem;
+    height: 0.65rem;
+    overflow: hidden;
+    border: 0;
+    border-radius: 999px;
+    background: var(--surface-soft);
+    accent-color: var(--success);
+}
+
+#barra-progresso::-webkit-progress-bar {
+    background: var(--surface-soft);
+    border-radius: 999px;
+}
+
+#barra-progresso::-webkit-progress-value {
+    background: var(--success);
+    border-radius: 999px;
+}
+
+.module-list,
+.lesson-table {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.module-card {
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: rgba(17, 24, 39, 0.38);
+}
+
+.module-header {
+    margin-bottom: 0.85rem;
+}
+
+.module-header span {
+    color: var(--primary);
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.lesson-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    font: inherit;
+    text-align: left;
+    transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+}
+
+.lesson-row:hover,
+.lesson-row.selecionada {
+    border-color: var(--primary);
+    background: rgba(56, 189, 248, 0.1);
+    transform: translateY(-1px);
+}
+
+.lesson-row.concluida {
+    padding-right: 2.8rem;
+    border-color: rgba(134, 239, 172, 0.52);
+    background: rgba(134, 239, 172, 0.08);
+}
+
+.lesson-row.concluida::after {
+    content: "✓";
+    position: absolute;
+    right: 1rem;
+    display: grid;
+    place-items: center;
+    width: 1.35rem;
+    height: 1.35rem;
+    border-radius: 50%;
+    background: var(--success);
+    color: #052e16;
+    font-weight: 900;
+}
+
+#aula-status {
+    width: fit-content;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--muted);
+    font-size: 0.82rem;
+}
+
+#aula-status.concluida {
+    border-color: rgba(134, 239, 172, 0.52);
+    background: rgba(134, 239, 172, 0.1);
+    color: var(--success);
+}
+
+#btn-marcar-concluida[data-concluida="true"] {
+    background: transparent;
+    border-color: rgba(134, 239, 172, 0.52);
+    color: var(--success);
+}
+
 .empty-state .btn {
     width: fit-content;
 }

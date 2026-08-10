@@ -23,12 +23,14 @@ public class ProgressoAulaService {
     private final UsuarioRepository usuarioRepository;
     private final AulaRepository aulaRepository;
     private final MatriculaRepository matriculaRepository;
+    private final CertificadoService certificadoService;
 
-    public ProgressoAulaService(ProgressoAulaRepository progressoAulaRepository, UsuarioRepository usuarioRepository, AulaRepository aulaRepository, MatriculaRepository matriculaRepository) {
+    public ProgressoAulaService(ProgressoAulaRepository progressoAulaRepository, UsuarioRepository usuarioRepository, AulaRepository aulaRepository, MatriculaRepository matriculaRepository, CertificadoService certificadoService) {
         this.progressoAulaRepository = progressoAulaRepository;
         this.usuarioRepository = usuarioRepository;
         this.aulaRepository = aulaRepository;
         this.matriculaRepository = matriculaRepository;
+        this.certificadoService = certificadoService;
     }
 
     private void atualizarStatusMatricula(Long alunoId, Long cursoId) {
@@ -52,6 +54,10 @@ public class ProgressoAulaService {
         );
 
         matriculaRepository.save(matricula);
+
+        if (cursoConcluido) {
+            certificadoService.gerar(alunoId, cursoId);
+        }
     }
 
     public ProgressoAula marcarConcluida(Long alunoId, Long aulaId) {

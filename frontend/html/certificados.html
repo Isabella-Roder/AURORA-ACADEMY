@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificados | Aurora Academy</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="aluno-dashboard.html">Aurora Academy</a>
+
+        <nav class="nav-menu">
+            <a href="aluno-dashboard.html">Dashboard</a>
+            <a href="meus-cursos.html">Meus cursos</a>
+            <a href="cursos.html">Catalogo</a>
+            <a href="certificados.html" aria-current="page">Certificados</a>
+            <button class="btn btn-secondary btn-small" id="btn-logout" type="button">Sair</button>
+        </nav>
+    </header>
+
+    <main class="certificate-page">
+        <section class="certificate-hero">
+            <div>
+                <span class="eyebrow">Suas conquistas</span>
+                <h1>Certificados</h1>
+                <p>Consulte os cursos concluidos e visualize seus certificados.</p>
+            </div>
+
+            <div class="profile-chip">
+                <span>Total conquistado</span>
+                <strong id="total-certificados">0</strong>
+            </div>
+        </section>
+
+        <section class="certificate-layout">
+            <article class="panel">
+                <div class="panel-header">
+                    <div>
+                        <span class="eyebrow">Historico</span>
+                        <h2>Meus certificados</h2>
+                    </div>
+                </div>
+
+                <div class="certificate-list" id="lista-certificados">
+                    <div class="empty-state" id="estado-vazio-certificados">
+                        <p>Voce ainda nao possui certificados.</p>
+                        <span>Conclua todas as aulas de um curso para liberar sua emissao.</span>
+                        <a class="btn btn-primary" href="meus-cursos.html">Continuar estudando</a>
+                    </div>
+                </div>
+            </article>
+
+            <section class="certificate-preview-panel" id="certificado-preview" aria-live="polite">
+                <article class="certificate-document">
+                    <div class="certificate-seal" aria-hidden="true">A</div>
+                    <span class="certificate-kicker">Aurora Academy</span>
+                    <h2>Certificado de conclusao</h2>
+                    <p>Certificamos que</p>
+                    <strong class="certificate-student" id="certificado-aluno">Nome do aluno</strong>
+                    <p>concluiu com sucesso o curso</p>
+                    <strong class="certificate-course" id="certificado-curso">Nome do curso</strong>
+
+                    <div class="certificate-meta">
+                        <div>
+                            <span>Data de emissao</span>
+                            <strong id="certificado-data">--/--/----</strong>
+                        </div>
+                        <div>
+                            <span>Codigo de validacao</span>
+                            <strong id="certificado-codigo">Selecione um certificado</strong>
+                        </div>
+                    </div>
+
+                    <div class="certificate-signature">
+                        <span>Aurora Academy</span>
+                        <small>Plataforma de ensino</small>
+                    </div>
+                </article>
+
+                <div class="certificate-actions">
+                    <button class="btn btn-primary" id="btn-imprimir-certificado" type="button" disabled>
+                        Imprimir certificado
+                    </button>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="../script/dashboard.js"></script>
+    <script src="../script/certificados.js"></script>
+</body>
+</html>

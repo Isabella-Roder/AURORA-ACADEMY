@@ -60,8 +60,14 @@ public class ProgressoAulaService {
         return progressoAulaRepository.save(progressoAula);
     }
 
+    public void desmarcarConcluida(Long alunoId, Long aulaId) {
+        ProgressoAula progresso = progressoAulaRepository.findByAlunoIdAndAulaId(alunoId, aulaId)
+            .orElseThrow(() -> new IllegalArgumentException("Progresso da aula não encontrado."));
+
+        progressoAulaRepository.delete(progresso);
+    }
+
     public List<ProgressoAula> listarPorCurso(Long alunoId, Long cursoId) {
         return progressoAulaRepository.findByAlunoIdAndAulaModuloCursoId(alunoId, cursoId);
     }
-
 }

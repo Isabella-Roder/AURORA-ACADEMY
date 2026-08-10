@@ -22,9 +22,13 @@ const aulaDescricao = document.getElementById("aula-descricao");
 const btnAbrirAula = document.getElementById("btn-abrir-aula");
 const btnMarcarComoConcluida = document.getElementById("btn-marcar-concluida");
 
+const barraProgresso = document.getElementById("barra-progresso");
+const aulaStatus = document.getElementById("aula-status");
+
 const mensagemAula = document.getElementById("mensagem-aula");
 
 let aulaSelecionada = null;
+let progressoCurso = [];
 let quantidadeTotalAulas = 0;
 
 function validarAcesso() {
@@ -162,6 +166,8 @@ function selecionarAula(aula, modulo) {
 
     btnMarcarComoConcluida.style.display = "inline-flex";
     mensagemAula.textContent = "";
+
+    atualizarEstadoAulaSelecionada();
 }
 
 async function buscarProgresso() {
@@ -182,14 +188,45 @@ function atualizarResumoProgresso(progressos) {
 
     const percentual = quantidadeTotalAulas === 0 ? 0 : Math.round((concluidas.length / quantidadeTotalAulas) * 100);
 
+    progressoCurso = progressos;
+
+    barraProgresso.value = percentual;
+    barraProgresso.textContent = `${percentual}%`;
+
     cursoProgresso.textContent = `${percentual}%`;
 }
 
-async function marcarAulaComoConcluida() {
+function atualizarEstadoAulaSelecionada() {
+    if (!aulaSelecionada) {
+        return;
+    }
+
+    const concluida = progressoCurso.some((progresso) => {
+        return progresso.concluida && progresso.aula.id === aulaSelecionada.id;
+    });
+
+    btnMarcarComoConcluida.dataset.concluida = String(concluida);
+
+    btnMarcarComoConcluida.textContent = concluida
+        ? "Desmarcar conclusão"
+        : "Marcar como concluida";
+
+    aulaStatus.textContent = concluida
+        ? "Aula concluída"
+        : "Não concluída";
+}
+
+async function alterarConclusaoAula() {
     if (!aulaSelecionada) {
         mensagemAula.textContent = "Selecione uma aula primeiro.";
         return;
     }
+
+    const estavaConcluida = btnMarcarComoConcluida.dataset.concluida === "true";
+
+    const metodo = estavaConcluida 
+        ? "DELETE"
+        : "POST";
 
     try {
         btnMarcarComoConcluida.disabled = true;
@@ -197,30 +234,33 @@ async function marcarAulaComoConcluida() {
         mensagemAula.textContent = "";
 
         const resposta = await fetch(`${API_URL}/progressos/alunos/${alunoLogado.id}/aulas/${aulaSelecionada.id}/concluir`, {
-            method: "POST"
+            method: metodo
         });
 
         if (!resposta.ok) {
             const erro = await resposta.text();
-            throw new Error(erro || "Erro ao concluir aula.");
+            throw new Error(erro || "Erro ao atualizar aula.");
         }
 
-        await resposta.json();
+        mensagemAula.textContent = estavaConcluida
+            ? "Conclusão removida."
+            : "Aula marcada como concluída.";
 
-        mensagemAula.textContent = "Aula marcada como concluida.";
+        const progresso = await buscarProgresso();
 
-        const progressos = await buscarProgresso();
-        atualizarResumoProgresso(progressos);
+        atualizarResumoProgresso(progresso);
+        atualizarEstadoAulaSelecionada();
+
     } catch (erro) {
         console.error(erro);
         mensagemAula.textContent = "Erro: " + erro.message;
     } finally {
         btnMarcarComoConcluida.disabled = false;
-        btnMarcarComoConcluida.textContent = "Marcar como concluida";
+        atualizarEstadoAulaSelecionada();
     }
 }
 
-btnMarcarComoConcluida.addEventListener("click", marcarAulaComoConcluida);
+btnMarcarComoConcluida.addEventListener("click", alterarConclusaoAula);
 
 async function iniciarPagina() {
     if(!validarAcesso()) {

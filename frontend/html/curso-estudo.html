@@ -30,6 +30,9 @@
             <div class="profile-chip">
                 <span>Progresso</span>
                 <strong id="curso-progresso">0%</strong>
+                <progress id="barra-progresso" value="0" max="100" aria-label="Progresso do curso">
+                    0%
+                </progress>
             </div>
         </section>
 
@@ -77,17 +80,18 @@
 
                 <div class="lesson-preview" id="aula-preview">
                     <span id="aula-modulo">Nenhum modulo selecionado</span>
+                    <strong id="aula-status">Nao concluida</strong>
                     <p id="aula-descricao">Clique em uma aula da lista para ver os detalhes.</p>
 
-                    <a class="btn btn-secondary" id="btn-abrir-aula" href="#" target="_blank" style="display: none;">
+                    <a class="btn btn-secondary" id="btn-abrir-aula" href="#" target="_blank" rel="noopener noreferrer" style="display: none;">
                         Abrir aula
                     </a>
 
-                    <button class="btn btn-primary" id="btn-marcar-concluida" type="button" style="display: none;">
+                    <button class="btn btn-primary" id="btn-marcar-concluida" type="button" aria-pressed="false" data-concluida="false" style="display: none;">
                         Marcar como concluida
                     </button>
 
-                    <p class="form-message" id="mensagem-aula"></p>
+                    <p class="form-message" id="mensagem-aula" role="status" aria-live="polite"></p>
                 </div>
             </aside>
         </section>
